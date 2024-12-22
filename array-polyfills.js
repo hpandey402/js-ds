@@ -64,3 +64,20 @@ Array.prototype.myReduce = function (cb, initialValue) {
 const bcd = ['abc', 'bd', '78'].myReduce((acc, el) => acc + el, 0);
 
 console.log(bcd);
+
+//Flat
+const arr = [1, 4, 5, [4, 5, [6, [3]]]];
+Array.prototype.myFlat = function () {
+  function flat(arr) {
+    const result = [];
+    if (Array.isArray(arr)) {
+      arr.forEach((el) => result.push(...flat(el)));
+    } else {
+      result.push(arr);
+    }
+    return result;
+  }
+  return flat(this);
+};
+
+console.log(arr.myFlat());
