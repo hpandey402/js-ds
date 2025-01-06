@@ -17,7 +17,6 @@ class Stack {
     const node = new Node(value);
     if (this.top) {
       node.next = this.top;
-      top.next = null;
       this.top = node;
     } else {
       this.top = node;
