@@ -142,7 +142,6 @@ class LinkedList {
 }
 
 const ll = new LinkedList(4);
-console.log(ll);
 ll.push(7);
 ll.push(8);
 ll.push(9);

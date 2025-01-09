@@ -27,7 +27,7 @@ class Queue {
     return this;
   }
   dequeue() {
-    //unshift
+    //shift
     if (this.length === 0) return false;
     let tmp = this.first;
     if (this.length === 1) {
