@@ -123,21 +123,51 @@ class LinkedList {
   }
 
   reverse() {
-    //hardest part
-    let temp = this.head;
+    let tmp = this.head;
     this.head = this.tail;
-    this.tail = temp;
+    this.tail = tmp;
+
     let next = this.tail.next;
     let pre = this.tail;
-
     this.tail.next = null;
-    for (let i = 0; i < this.length - 1; i++) {
-      let tmp = next.next;
+
+    for (let i = 1; i < this.length; i++) {
+      let temp = next.next;
       next.next = pre;
       pre = next;
-      next = tmp;
+      next = temp;
     }
+
     return this;
+  }
+  reverseHalf() {
+    let midIndex = Math.floor(this.length / 2);
+    let count = 1;
+    let last = this.head;
+    while (count < midIndex) {
+      last = last.next;
+      count++;
+    }
+    let preserve = last.next;
+    last.next = null;
+
+    let temp = this.head;
+    this.head = last;
+    last = temp;
+    let next = last.next;
+    let pre = last;
+
+    for (let i = 1; i < midIndex; i++) {
+      let temp = next.next;
+      next.next = pre;
+      pre = next;
+      next = temp;
+    }
+
+    last.next = preserve;
+    preserve = null;
+    return this;
+    // console.log(preserve);
   }
 }
 

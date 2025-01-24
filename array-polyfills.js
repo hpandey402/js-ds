@@ -80,4 +80,19 @@ Array.prototype.myFlat = function () {
   return flat(this);
 };
 
+//Alternative
+// Array.prototype.myFlat = function(){
+//         let newArray = [];
+//             for(let i=0; i<this.length; i++){
+//             if(Array.isArray(this[i])){
+//                    newArray.push(...[].myFlat.call(this[i]))
+//             }
+//             else{
+//             newArray.push(this[i]);
+//         }
+//         }
+
+//         return newArray;
+// }
+
 console.log(arr.myFlat());

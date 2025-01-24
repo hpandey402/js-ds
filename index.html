@@ -4,21 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script2.js" defer></script>
+    <script src="webworker.js" defer></script>
   </head>
   <body>
-    <input type="text" />
-    <div>
-      <b>Default:</b>
-      <span id="default"></span>
-    </div>
-    <div>
-      <b>Debounce:</b>
-      <span id="debounce"></span>
-    </div>
-    <div>
-      <b>Throttle:</b>
-      <span id="throttle"></span>
-    </div>
+    <section>
+      <input type="text" />
+      <div>
+        <b>Default:</b>
+        <span id="default"></span>
+      </div>
+      <div>
+        <b>Debounce:</b>
+        <span id="debounce"></span>
+      </div>
+      <div>
+        <b>Throttle:</b>
+        <span id="throttle"></span>
+      </div>
+    </section>
+
+    <section>
+      <ul id="myList">
+        <li>My List 1</li>
+        <li>My List 2</li>
+        <li>My List 3</li>
+        <li>My List 4</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Web workers</h2>
+      <button class="worker">Start operation</button>
+      <span>Result:</span><span id="result"></span>
+    </section>
   </body>
 </html>
