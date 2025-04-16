@@ -1,5 +1,6 @@
-// Understand memoization is JavaScript:
-// Memoization is a optimization technique that is used for caching time consuming operations.
+// Understanding memoization in JavaScript:
+// Memoization is a optimization technique that is used for
+// caching time consuming operations.
 
 function sum(num) {
   return (num * 100) / 56;

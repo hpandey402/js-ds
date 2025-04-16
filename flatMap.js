@@ -53,14 +53,14 @@ const orders = [
 //output:
 
 // [
-//   {
-//     orderId: 101,
-//     customerName: 'Alice',
-//     productId: 'P001',
-//     productName: 'Laptop',
-//     reviewer: 'John',
-//     rating: 5,
-//   },
+//   {"orderId":101,"customerName":"Alice","productId":"P001","productName":"Laptop","reviewer":"John","rating":5},
+//   {"orderId":101,"customerName":"Alice","productId":"P001","productName":"Laptop","reviewer":"Emily","rating":4},
+//   {"orderId":101,"customerName":"Alice","productId":"P002","productName":"Mouse","reviewer":"Mark","rating":4},
+//   {"orderId":101,"customerName":"Alice","productId":"P002","productName":"Mouse","reviewer":"Anna","rating":3},
+//   {"orderId":102,"customerName":"Bob","productId":"P003","productName":"Smartphone","reviewer":"Sara","rating":5},
+//   {"orderId":102,"customerName":"Bob","productId":"P003","productName":"Smartphone","reviewer":"David","rating":4},
+//   {"orderId":102,"customerName":"Bob","productId":"P004","productName":"Headphones","reviewer":"Alice","rating":5},
+//   {"orderId":102,"customerName":"Bob","productId":"P004","productName":"Headphones","reviewer":"Tom","rating":4}
 // ]
 
 function transform(arr) {

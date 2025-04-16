@@ -21,6 +21,6 @@ Son.prototype.getFullDetails = function () {
   return this.firstName + ' ' + this.lastName + ' ' + this.age;
 };
 
+//The below code is need to implement here
 const son = new Son('max', 'habib', 34);
-
 console.log(son.getFullName());

@@ -1,18 +1,26 @@
 async function fetchWithRetry(promise, retry = 3) {
   try {
-    const res = await promise;
-    console.log(res);
+    const res = await promise(retry);
+    return res;
   } catch (err) {
-    if (retry > 0) {
-      console.log('retrying...');
-      await new Promise((res) => setTimeout(res, 1000));
-      fetchWithRetry(promise, retry - 1);
+    if (retry === 0) {
+      throw new Error('Rejected after several tries');
     } else {
-      throw new Error('Getting error: ' + err);
+      console.log('retrying...');
+      return fetchWithRetry(promise, --retry);
     }
   }
 }
+const promise = (retry) =>
+  new Promise((res, rej) => {
+    if (retry === 1) {
+      setTimeout(res, 2000, 'yes resolved');
+    } else {
+      setTimeout(rej, 2000, 'err rejected');
+    }
+  });
 
-const pr = new Promise((_, rej) => setTimeout(rej, 1000, 'u got no rizz'));
-
-fetchWithRetry(pr);
+fetchWithRetry(promise).then(
+  (data) => console.log('yestst', data),
+  (err) => console.log('Errrrr', err)
+);

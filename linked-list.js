@@ -140,34 +140,40 @@ class LinkedList {
 
     return this;
   }
+  //Alternative
+  //   reverse(){
+  //     let current = this.head;
+  //     let prev =  null;
+  //     let next = null;
+
+  //     for(let i=0; i<this.length; i++){
+  //         next = current.next;
+  //         current.next = prev;
+  //         prev = current;
+  //         current = next;
+  //     }
+  //     this.tail = this.head;
+  //     this.head = prev;
+  //     return this;
+  // }
   reverseHalf() {
-    let midIndex = Math.floor(this.length / 2);
-    let count = 1;
-    let last = this.head;
-    while (count < midIndex) {
-      last = last.next;
-      count++;
+    if (this.length <= 2) return false;
+    const len = this.length % 2 === 0 ? this.length : this.length + 1; //for odd length case
+    // (Use only when required during interview)
+    let mid = Math.floor(len / 2);
+    let current = this.head;
+    let next = null;
+    let prev = null;
+
+    for (let i = 0; i < mid; i++) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
     }
-    let preserve = last.next;
-    last.next = null;
-
-    let temp = this.head;
-    this.head = last;
-    last = temp;
-    let next = last.next;
-    let pre = last;
-
-    for (let i = 1; i < midIndex; i++) {
-      let temp = next.next;
-      next.next = pre;
-      pre = next;
-      next = temp;
-    }
-
-    last.next = preserve;
-    preserve = null;
+    this.head.next = current;
+    this.head = prev;
     return this;
-    // console.log(preserve);
   }
 }
 

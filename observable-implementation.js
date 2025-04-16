@@ -1,42 +1,62 @@
-/** Implement an Observable object (Similar to Rxjs observable) */
-
-//Implementation
 class Observable {
-  constructor(subscribeFn) {
-    this.subscribeFn = subscribeFn;
+  constructor(func) {
+    this.subscriberFn = func;
   }
 
-  subscribe(observer) {
-    const newObserver =
-      typeof observer === 'function'
-        ? {
-            next: observer,
-            error: () => {},
-            complete: () => {},
+  subscribe(param) {
+    let isUnsubscribed = false;
+    const newObj = {
+      next: (...args) => {
+        if (!isUnsubscribed && param) {
+          if (typeof param === 'object') {
+            param.next(...args);
+          } else {
+            param(...args);
           }
-        : {
-            next: observer.next || (() => {}),
-            error: observer.error || (() => {}),
-            complete: observer.complete || (() => {}),
-          };
+        }
+      },
+      error: (...args) => {
+        if (!isUnsubscribed && param.error) {
+          param.error(...args);
+          isUnsubscribed = true;
+        }
+      },
+      complete: () => {
+        if (!isUnsubscribed && param.complete) {
+          param.complete();
+          isUnsubscribed = true;
+        }
+      },
+    };
 
-    const unsubs = this.subscribeFn(newObserver);
-
-    return { unsubscribe: typeof unsubs === 'function' ? unsubs : () => {} };
+    const teardown = this.subscriberFn(newObj) || (() => {});
+    if (isUnsubscribed) teardown();
+    return {
+      unsubscribe: () => {
+        console.log('Unsubscribed!!');
+        isUnsubscribed = true;
+        teardown();
+      },
+    };
   }
 }
 
-//Execution
-const myObs = new Observable((observer) => {
-  observer.next(1);
-  observer.next(2);
-  observer.complete();
+const obs = new Observable((subscriber) => {
+  subscriber.next('laila');
+  subscriber.error('Something went wrong');
+  // subscriber.complete();
+  subscriber.next('max');
 
-  return () => console.log('clean up! code');
+  return () => {
+    console.log('clean up code here executed!!');
+  };
 });
 
-myObs.subscribe({
-  next: (val) => console.log(val),
+const subs = obs.subscribe({
+  next: (data) => console.log(data),
+  complete: () => console.log('Completed!!'),
+  error: (err) => console.log(err),
 });
+// const subs = obs.subscribe(data => console.log(data) );
 
-myObs.subscribe((val) => console.log(val));
+subs.unsubscribe();

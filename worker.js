@@ -1,7 +1,10 @@
-onmessage = () => {
+onmessage = function (e) {
   let res = 1;
-  for (let i = 1; i < 1000000000; i++) {
-    res += i * 88889;
+  // console.log('chehchc', );
+  const num = e.data.number;
+  for (let i = 1; i < num; i++) {
+    res += (7838294 * 100000) / 7832344;
   }
+  console.log(res);
   postMessage(res);
 };

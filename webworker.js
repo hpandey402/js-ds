@@ -1,14 +1,17 @@
 const button = document.querySelector('.worker');
 const result = document.getElementById('result');
 
-button.addEventListener('click', () => {
+button.addEventListener('click', calculateResult);
+
+function calculateResult() {
   const worker = new Worker('./worker.js');
-  worker.postMessage('start');
 
-  worker.onmessage = (res) => {
-    // console.log('dsaadasdadas', res.data);
-    result.textContent = res.data;
+  worker.postMessage({ number: 1000055456 });
+
+  console.log('calculation is ongoing...');
+
+  worker.onmessage = (e) => {
+    console.log(e);
+    result.innerText = e.data;
   };
-
-  console.log('started calculation....');
-});
+}

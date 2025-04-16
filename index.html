@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="webworker.js" defer></script>
+    <script src="table-practice.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section>
@@ -23,6 +24,7 @@
       </div>
     </section>
 
+    <!-- Event Delegation -->
     <section>
       <ul id="myList">
         <li>My List 1</li>
@@ -32,10 +34,187 @@
       </ul>
     </section>
 
+    <!-- Event Capturing -->
+    <div id="outer">
+      <div id="middle">
+        <div id="inner">
+          <button>Click me</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Bubbling -->
+    <div id="outer1">
+      <div id="middle1">
+        <div id="inner1">
+          <button>click me</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Workers -->
     <section>
       <h2>Web workers</h2>
       <button class="worker">Start operation</button>
       <span>Result:</span><span id="result"></span>
     </section>
+
+    <!-- Scrolling -->
+    <div>
+      <button onclick="location.href = '#section8'">click me</button>
+      <a href="#section8">click me a</a>
+      <section id="section1">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic blanditiis
+        delectus non possimus laboriosam fugiat rerum vitae iusto at quia
+        molestias aliquam laudantium expedita eaque, nisi dolorem, dolore ullam!
+        Architecto ipsum, reiciendis repellat explicabo nesciunt voluptatem?
+        Quas rerum error illum!
+      </section>
+
+      <section id="section2">
+        <strong>Lorem ipsum dolor sit</strong>strong> amet consectetur
+        adipisicing elit. Odio maxime autem, magnam natus cupiditate accusamus
+        dolores quibusdam necessitatibus officiis dignissimos dolore unde
+        veritatis illum ipsum harum eaque, suscipit placeat modi eligendi ut.
+        Totam omnis, quia sint cumque veniam dolor dicta dolores voluptatum quas
+        facere repellat. <b>Ipsum odit</b>, dolor eaque quos dolorem dolore!
+        Commodi eos culpa odit nihil, laborum repellat suscipit.
+      </section>
+      <section id="section3">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic blanditiis
+        delectus non possimus laboriosam fugiat rerum vitae iusto at quia
+        molestias aliquam laudantium expedita eaque, nisi dolorem, dolore ullam!
+        Architecto ipsum, reiciendis repellat explicabo nesciunt voluptatem?
+        Quas rerum error illum!
+      </section>
+
+      <section id="section4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maxime
+        autem, magnam natus cupiditate accusamus dolores quibusdam
+        necessitatibus officiis dignissimos dolore unde veritatis illum ipsum
+        harum eaque, suscipit placeat modi eligendi ut. Totam omnis, quia sint
+        cumque veniam dolor dicta dolores voluptatum quas facere repellat. Ipsum
+        odit, dolor eaque quos dolorem dolore! Commodi eos culpa odit nihil,
+        laborum repellat suscipit.
+      </section>
+      <section id="section5">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic blanditiis
+        delectus non possimus laboriosam fugiat rerum vitae iusto at quia
+        molestias aliquam laudantium expedita eaque, nisi dolorem, dolore ullam!
+        Architecto ipsum, reiciendis repellat explicabo nesciunt voluptatem?
+        Quas rerum error illum!
+      </section>
+
+      <section id="section6">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maxime
+        autem, magnam natus cupiditate accusamus dolores quibusdam
+        necessitatibus officiis dignissimos dolore unde veritatis illum ipsum
+        harum eaque, suscipit placeat modi eligendi ut. Totam omnis, quia sint
+        cumque veniam dolor dicta dolores voluptatum quas facere repellat. Ipsum
+        odit, dolor eaque quos dolorem dolore! Commodi eos culpa odit nihil,
+        laborum repellat suscipit.
+      </section>
+      <section id="section7">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic blanditiis
+        delectus non possimus laboriosam fugiat rerum vitae iusto at quia
+        molestias aliquam laudantium expedita eaque, nisi dolorem, dolore ullam!
+        Architecto ipsum, reiciendis repellat explicabo nesciunt voluptatem?
+        Quas rerum error illum!
+      </section>
+
+      <section id="section8">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maxime
+        autem, magnam natus cupiditate accusamus dolores quibusdam
+        necessitatibus officiis dignissimos dolore unde veritatis illum ipsum
+        harum eaque, suscipit placeat modi eligendi ut. Totam omnis, quia sint
+        cumque veniam dolor dicta dolores voluptatum quas facere repellat. Ipsum
+        odit, dolor eaque quos dolorem dolore! Commodi eos culpa odit nihil,
+        laborum repellat suscipit.
+      </section>
+    </div>
+
+    <!-- Basic table implementation -->
+    <section>
+      <table>
+        <caption>
+          Table
+        </caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Hobbies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Max</td>
+            <td>34</td>
+            <td>Badminton, Basketball</td>
+          </tr>
+          <tr>
+            <td>Rohan</td>
+            <td>28</td>
+            <td>Football, Basketball</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Scope Table Implementation -->
+    <table>
+      <caption>
+        Delivery slots:
+      </caption>
+      <tr>
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+      <tr>
+        <th scope="row">09:00 - 11:00</th>
+        <td>Closed</td>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <th scope="row">11:00 - 13:00</th>
+        <td>Closed</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Open</td>
+        <td>Closed</td>
+      </tr>
+    </table>
+
+    <!-- Mutation observer Practice -->
+    <div class="parent" id="parent">
+      <div class="child">Child1</div>
+      <div class="child">Child2</div>
+      <div class="child">Child3</div>
+    </div>
+    <!-- Mutation observer Practice  -->
+
+    <!-- Interview Question -->
+    <div>
+      <div>
+        <label for="row">Rows</label>
+        <input type="number" id="row" />
+      </div>
+      <div>
+        <label for="column">Columns</label>
+        <input type="number" id="column" />
+      </div>
+      <button id="smtBtn">Submit</button>
+      <hr />
+
+      <div id="table-root"></div>
+    </div>
+    <!-- Interview Question -->
   </body>
 </html>
